@@ -39,8 +39,15 @@ namespace ProductApps
                 const decimal deliveryCharge = 25.00m;
                 decimal totalCharge = cProduct.TotalPayment + deliveryCharge;
 
-                //display in the new text block
+                //display in the delivery text block
                 totalChargeTextBox.Text = totalCharge.ToString("C");
+
+                //add Wrap charge
+                const decimal wrapCharge = 5.00m;
+                decimal totalChargeWrap = cProduct.TotalPayment + deliveryCharge + wrapCharge;
+
+                //display in the wrap text block
+                totalChargeWrapTextBox.Text = totalChargeWrap.ToString("C");
 
             }
             catch (FormatException)
@@ -56,6 +63,7 @@ namespace ProductApps
             quantityTextBox.Text = "";
             totalPaymentTextBlock.Text = "";
             totalChargeTextBox.Text = "";
+            totalChargeWrapTextBox.Text = "";
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
