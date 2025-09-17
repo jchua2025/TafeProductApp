@@ -49,6 +49,13 @@ namespace ProductApps
                 //display in the wrap text block
                 totalChargeWrapTextBox.Text = totalChargeWrap.ToString("C");
 
+                //add GST charge
+                const decimal gstCharge = 0.10m;
+                decimal totalWithGST = totalChargeWrap * (1 + gstCharge);
+
+                //display in the GST text block
+                totalGSTTextBox.Text = totalWithGST.ToString("C");
+
             }
             catch (FormatException)
             {
@@ -64,6 +71,7 @@ namespace ProductApps
             totalPaymentTextBlock.Text = "";
             totalChargeTextBox.Text = "";
             totalChargeWrapTextBox.Text = "";
+            totalGSTTextBox.Text = "";
         }
 
         private void closeButton_Click(object sender, RoutedEventArgs e)
